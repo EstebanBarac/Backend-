@@ -1,4 +1,7 @@
-    const fs = require('fs');
+const express = require('express');
+const fs = require('fs');
+const PORT = process.env.PORT || 8080;
+const app = express();
 
 
     class Contenedor {
@@ -30,7 +33,7 @@
             try {
                 let contenido = await fs.promises.readFile(`./${this.name}`, 'utf-8');
                 let contenidoJson = JSON.parse(contenido);
-                let contenidoExtraidoArray
+                let contenidoExtraidoArray = null;
 
                 contenidoJson.forEach( element => {
                     if (element.id == id){
@@ -71,36 +74,42 @@
 
         async deleteAll() {
             try {
-                await fs.promises.writeFile(`./${this.name}`, JSON.stringify('array borrado'));
+                await fs.promises.writeFile(`./${this.name}`, JSON.stringify([]));
             }
             catch (error) {
-                console.log(error.message)
+                console.log(error.message);
+            }
+        }
+        async getProductRandom() {
+            try {
+                const content = await this.getAll();
+                const procutRandom = content[Math.floor(Math.random() * content.length)]
+                return procutRandom
+            }
+            catch (err) {
+                console.log(error.message);
             }
         }
     }
 
-        let contenedor = new Contenedor("productos.json")
-        
-        let informacionNueva = {
-                "id": 1,
-                "title": "Campera",
-                "price": 380,
-                "thumbnail": "hhhttps/img4.com" 
-            }
+    let contenedor = new Contenedor("productos.json")
 
-        //METODOS
-            
+app.get('/', async (req, res) => {
+     res.send('Esta es la pagina de Inicio');
+})
 
-        contenedor.save(informacionNueva).then(res => {
-            console.log(res);
-        });
+app.get('/productos', async (req, res) => {
+    contenedor.getAll().then((products) => res.send(products))
+});
 
-        contenedor.getById(3).then(res => {
-            console.log(res);
-        });
-
-        contenedor.getAll().then( res => {
-            console.log(res);
-        });
-
-        contenedor.deleteAll();
+app.get('/productoRandom', async (req, res) => {
+    contenedor.getProductRandom().then((product) => res.send(product))
+});
+    
+const connectedServer = app.listen(PORT, () => {
+    console.log(`Server is on and running on port: ${PORT}`);
+});
+    
+connectedServer.on('error', (error) => {
+    console.log(error.message);
+});
