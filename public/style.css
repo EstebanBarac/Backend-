@@ -1,46 +1,139 @@
-.container {
-  display: grid;
-  place-content: center;
-  width: 100%;
-  height: 100vh;
-  background-color: #333533;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+h1 {
+  text-align: center;
+}
 
 form {
-  width: 23rem;
-  display: flex;
-  padding: 5px;
-  border-width: 1.5px;
+  width: 500px;
+  background-color: rgb(69, 69, 69);
+  padding: 2rem;
+  margin: auto;
+  margin-top: 2rem;
   border-radius: 10px;
-  background-color: #cfdbd5;
-  flex-direction: column;
-  align-items: center;
-}
-form button {
-  justify-content: flex-end;
-  background-color: #013bcec0;
-  border-radius: 5px;
-  font-size: 25px;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
-  width: 10rem;
 }
 
-form button:hover {
-  background-color: #013bce84;
-  cursor: pointer;
-}
-
-form p {
-  font-size: 25px;
-  margin: 10px;
-}
-form input {
-  height: 1.5rem;
-  width: 20rem;
-  margin: 10px;
+form h2 {
+  padding-bottom: 2rem;
+  color: white;
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  align-content: center;
+  justify-content: center;
+}
+
+form > input {
+  width: 100%;
+  padding: 0.5rem 0;
+  margin: 0.5rem 0;
+  border-radius: 10px;
+}
+
+form > button {
+  font-size: 1rem;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  width: 100%;
+  cursor: pointer;
+  font-weight: 700;
+  border-radius: 10px;
+}
+
+form > button:hover {
+  background-color: rgba(0, 0, 255, 0.549);
+}
+
+form > label {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+}
+
+::placeholder {
+  text-align: center;
+}
+
+.btnProduct {
+  display: flex;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  margin: 2rem auto;
+  background-color: rgba(0, 0, 255, 0.549);
+  border-radius: 10px;
+}
+
+.btnProduct > a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+/* mainHBS */
+table {
+  margin-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+  font-size: 1.5rem;
+  width: 50%;
+  text-align: center;
+}
+
+td,
+th,
+tr {
+  padding: 1rem;
+}
+
+tr,
+th {
+  border: 2px solid black;
+}
+
+th {
+  font-size: 2rem;
+  background-color: rgba(204, 201, 201, 0.678);
+}
+
+img {
+  max-width: 4rem;
+}
+
+.btnVolver {
+  display: flex;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  margin: 2rem auto;
+  background-color: bisque;
+}
+
+.btnVolver a {
+  text-decoration: none;
+  color: brown;
+  font-weight: bold;
+}
+
+h3 {
+  text-align: center;
+  padding: 2rem;
+  color: red;
+  font-weight: bold;
+}
+
+.backProct {
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+}
+
+.backProct > a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  border: 3px solid rgb(24, 24, 24);
+  background-color: rgb(233, 232, 156);
+  padding: 0.5rem;
 }

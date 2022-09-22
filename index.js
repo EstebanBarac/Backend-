@@ -1,16 +1,40 @@
 const express = require("express");
-const apiRouters = require("./routers/app.routers");
-
+const { engine } = require("express-handlebars");
+const path = require("path");
+const Products = require("./model/data");
 const app = express();
+const products = new Products();
+const { items } = products;
+
 const PORT = process.env.PORT || 8080;
 
-//Middlewares a nivel de aplicación
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-app.use("/api", apiRouters);
-
 app.use(express.static("public"));
+app.set("views", "./views");
+app.set("view engine", "ejs");
+
+app.post("/productos", (req, res) => {
+  const data = req.body;
+  const { title, price, thumbnail } = req.body;
+  if (title || price || thumbnail) {
+    products.save(data);
+    res.redirect("/productos");
+  }
+});
+
+app.get("/productos", (req, res) => {
+  if (items.length >= 1) {
+    res.render("index", {
+      mostrarProductos: true,
+      products: items,
+    });
+  } else {
+    res.render("index", {
+      mostrarProductos: false,
+    });
+  }
+});
 
 const connectedServer = app.listen(PORT, () => {
   console.log(`🚀Server active and listening on the port: ${PORT}`);
