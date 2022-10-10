@@ -1,6 +1,6 @@
 const fs = require('fs')
 
-class Contenedor {
+class Producto {
     constructor(archivo) {
         this.archivo = archivo;
     }
@@ -14,9 +14,13 @@ class Contenedor {
 
             const newProduct = {
                 "id":idMayor+1,
-                "title":producto.title,
-                "price":producto.price,
-                "thumbnail": producto.thumbnail
+                "timestamp": Date.now(),
+                "name": producto.name,
+                "description": producto.description,
+                "code": producto.code,
+                "thumbnail": producto.thumbnail,
+                "price": producto.price,
+                "stock": producto.stock
             }
             let newProductFormat;
             if(contenido.length === 0) {
@@ -60,10 +64,14 @@ class Contenedor {
                 if(prod.id === parseInt(id)) prodSearched = prod
             }
             const newProduct = {
-                "title":producto.title,
-                "price":producto.price,
+                "id": parseInt(producto.id),
+                "timestamp": Date.now(),
+                "name": producto.name,
+                "description": producto.description,
+                "code": producto.code,
                 "thumbnail": producto.thumbnail,
-                "id": parseInt(producto.id)
+                "price": producto.price,
+                "stock": producto.stock
             }
             const newProductString = JSON.stringify(newProduct)
             const prodSearchedString = JSON.stringify(prodSearched)
@@ -94,15 +102,5 @@ class Contenedor {
             console.log('Error' + e)
         }
     }
-
-    async deleteAll(){
-        try{
-            const contenido = JSON.parse(await fs.promises.readFile(this.archivo, 'utf-8'))
-            contenido.splice(0, contenido.length)
-            await fs.promises.writeFile(this.archivo, JSON.stringify(contenido))
-        }catch (e) {
-            console.log('Error' + e)
-        }
-    }
 }
-module.exports = Contenedor;
+module.exports = Producto

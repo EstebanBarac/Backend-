@@ -1,23 +1,18 @@
 {
-  "name": "desafio6",
+  "name": "preimera-entrea",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node app.js",
-    "start-dev": "nodemon app.js"
+    "start": "node server.js",
+    "start-dev": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bootstrap": "^5.2.2",
-    "ejs": "^3.1.8",
     "express": "^4.18.1",
-    "express-handlebars": "^6.0.6",
-    "hbs": "^4.2.0",
-    "pug": "^3.0.2",
-    "socket.io": "^4.5.2"
+    "express-handlebars": "^6.0.6"
   },
   "devDependencies": {
     "nodemon": "^2.0.19"
