@@ -2,17 +2,20 @@
   "name": "preimera-entrea",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "desafio7.js",
   "scripts": {
-    "start": "node server.js",
-    "start-dev": "nodemon server.js"
+    "start-dev": "nodemon desafio7.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "ejs": "^3.1.8",
     "express": "^4.18.1",
-    "express-handlebars": "^6.0.6"
+    "knex": "^2.1.0",
+    "mysql": "^2.18.1",
+    "socket.io": "^4.5.1",
+    "sqlite3": "^5.0.8"
   },
   "devDependencies": {
     "nodemon": "^2.0.19"
