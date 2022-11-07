@@ -6,7 +6,7 @@
         {"id":2,
         "timestamp":1653449464334,
         "name":"Zanahoria",
-        "description":"Zanahoria Verduleria La Sin Rival",
+        "description":"Zanahoria Verduleria",
         "code":"AB542D23122",
         "thumbnail":"https://cdn0.iconfinder.com/data/icons/vegetables-ii-color/290/01-256.png","price":10,"stock":60
         }]

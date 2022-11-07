@@ -3,11 +3,6 @@ import * as producto from './producto.js'
 
 const cartCollection = "carritos"
 
-// const CarritosSChema = new mongoose.Schema({
-//   timestamps: Date,
-//   product: []
-// })
-
 const CarritosSChema = new mongoose.Schema({
   timestamp: Date,
   product: [
